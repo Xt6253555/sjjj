@@ -1,0 +1,33 @@
+package JUC;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class ListTest {
+    public static void main(String[] args) {
+        AtomicInteger atomicInteger = new AtomicInteger(2020);
+
+        //boolean compareAndSet(int expect, int update)
+        //期望值、更新值
+        //如果实际值 和 我的期望值相同，那么就更新
+        //如果实际值 和 我的期望值不同，那么就不更新
+//        System.out.println(atomicInteger.compareAndSet(2020, 2021));
+//        System.out.println(atomicInteger.get());
+
+        //因为期望值是2020  实际值却变成了2021  所以会修改失败
+        //CAS 是CPU的并发原语
+        atomicInteger.getAndIncrement(); //++操作
+        System.out.println(atomicInteger.compareAndSet(2020, 2021));
+        System.out.println(atomicInteger.get());
+    }
+    public static void ArrayList(){
+        List<Integer> list = new CopyOnWriteArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            new Thread(()->{
+                list.add(1);
+                System.out.println(list);
+            }).start();
+        }
+    }
+}
