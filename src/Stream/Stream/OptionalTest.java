@@ -1,6 +1,8 @@
 package Stream.Stream;
 
+import java.util.HashMap;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 //optional类测试案例
 public class OptionalTest {
@@ -24,6 +26,6 @@ public class OptionalTest {
         }
     }
     public static void main(String[] args) {
-        test01();
+        //test01();
     }
 }

@@ -1,6 +1,5 @@
 package DesignPattern2.proxy.demo3;
 
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -17,6 +16,7 @@ public class ProxyInvocationHandler implements InvocationHandler {
     }
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        //代理类前后增加逻辑
         seeHouse();
         Object result = method.invoke(rent, args);
         face();
