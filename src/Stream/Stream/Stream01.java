@@ -29,7 +29,6 @@ public class Stream01 {
                 .forEach(System.out::println);
     }
     public static void main(String[] args) {
-        test01();
-
+        //test01();
     }
 }
