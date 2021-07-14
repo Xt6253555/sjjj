@@ -1,9 +1,7 @@
 package CompletableFuture;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 //CompletableFuture的超时处理
 public class get {
