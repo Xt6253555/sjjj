@@ -1,6 +1,7 @@
 package Stream.Stream;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 //映射
@@ -23,36 +24,47 @@ public class Stream03 {
         }
         return list.stream();
     }
+    //flatMap
     public static void test02() {
         List<String> list = Arrays.asList("aa", "bb", "cc");
-//        list.stream()
-//                .flatMap(Stream03::filterCharacter)
-//                .forEach(System.out::println);
-        Stream<Stream<Character>> stream = list.stream().map(Stream03::filterCharacter);
-        stream.forEach(sm->sm.forEach(System.out::println));
+        list.stream()
+                .flatMap(Stream03::filterCharacter)
+                .forEach(System.out::println);
+//        Stream<Stream<Character>> stream = list.stream().map(Stream03::filterCharacter);
+//        stream.forEach(sm->sm.forEach(System.out::println));
     }
+    //排序
     public static void test03(){
         List<Student> list = Arrays.asList(new Student("a", 20),
                 new Student("b", 10),
                 new Student("a", 30));
-//        list.stream()
-//                .sorted(Comparator.comparing(Student::getAge))
-//                .sorted(Comparator.comparing(Student::getName))
-//                .forEach(System.out::println);
         list.stream()
-                .sorted((e1, e2) -> { //compara()
-                    if (e1.getAge()==e2.getAge()){
-                        return e1.getName().compareTo(e2.getName());
-                    } else {
-                        return Integer.compare(e1.getAge(),e2.getAge());
-                    }
-                })
+                .sorted(Comparator.comparing(Student::getAge).reversed())
+//                .sorted(Comparator.comparing(Student::getName))
                 .forEach(System.out::println);
+//        list.stream()
+//                .sorted((e1, e2) -> { //compara()
+//                    if (e1.getAge()==e2.getAge()){
+//                        return e1.getName().compareTo(e2.getName());
+//                    } else {
+//                        return Integer.compare(e1.getAge(),e2.getAge());
+//                    }
+//                })
+//                .forEach(System.out::println);
     }
 
+    //list转map
+    public static void test04(){
+        List<Student> list = Arrays.asList(new Student("a", 20),
+                new Student("b", 10),
+                new Student("c", 30));
+        Map<Integer, String> map = list.stream().collect(Collectors.toMap(Student::getAge, Student::getName, (a, b) -> a));
+        System.out.println(map);
+    }
     public static void main(String[] args) {
-        //test01();
-        //test02();
+//        test01();
+//        test02();
         test03();
+//        test04();
     }
 }
