@@ -8,7 +8,7 @@ import java.util.concurrent.CompletableFuture;
 //thenApply（）转换的是泛型中的类型，是同一个CompletableFuture；
 //thenCompose（）用来连接两个CompletableFuture，是生成一个新的CompletableFuture
 public class thenApply {
-    public static void main(String[] args) {
+    public static void thenApply(){
         int res = 1;
         CompletableFuture<Integer> cf1= CompletableFuture.supplyAsync(()->{
             return res;
@@ -16,5 +16,20 @@ public class thenApply {
             return resp+res+2;
         });
         System.out.println(cf1.join());
+    }
+    public static void thenAccept(){
+        CompletableFuture<Integer> cf1 = CompletableFuture.supplyAsync(() -> {
+            return 1;
+        });
+        CompletableFuture<Integer> cf2 = CompletableFuture.supplyAsync(() -> {
+            return 2;
+        });
+        CompletableFuture<Void> accept = cf1.thenAccept(a -> {
+            System.out.println(a);
+        });
+        System.out.println(accept.join());
+    }
+    public static void main(String[] args) {
+        thenAccept();
     }
 }
