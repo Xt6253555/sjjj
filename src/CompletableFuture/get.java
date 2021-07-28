@@ -1,7 +1,12 @@
 package CompletableFuture;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 //CompletableFuture的超时处理
 public class get {
@@ -23,6 +28,6 @@ public class get {
     }
 
     public static void main(String[] args) {
-        get();
+//        get();
     }
 }
