@@ -45,6 +45,9 @@ public class exceptionally {
         });
         CompletableFuture<Integer> handle = cf1.handle((a, b) -> {
             System.out.println(a);
+            if(b!=null){
+                System.out.println(1);
+            }
             System.out.println(b.getMessage());
             return 2;
         });
