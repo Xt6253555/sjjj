@@ -9,10 +9,11 @@ public class parallelStream {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         //乱序输出
         numbers.parallelStream()
-                .forEach(System.out::println);
+                .forEach(System.out::print);
+        System.out.println("-------------");
         //顺序输出
         numbers.parallelStream()
-                .forEachOrdered(System.out::println);
+                .forEachOrdered(System.out::print);
 
     }
 
