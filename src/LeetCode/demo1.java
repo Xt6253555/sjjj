@@ -1,6 +1,4 @@
 package LeetCode;
-//输入：nums = [2,3,4], target = 6
-//输出：[1,2]
 import java.util.Arrays;
 import java.util.HashMap;
 public class demo1 {
