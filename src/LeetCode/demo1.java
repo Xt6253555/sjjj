@@ -1,12 +1,13 @@
 package LeetCode;
-
+//输入：nums = [2,3,4], target = 6
+//输出：[1,2]
+import java.util.Arrays;
 import java.util.HashMap;
-//leetcodenb@163.com
-//maboshidewovxdnf767
 public class demo1 {
     public static void main(String[] args) {
-        StringBuffer sb = new StringBuffer("ab");
-        System.out.println(sb.reverse().toString() );
+        int num[] = {2,3,4};
+        int[] ints = twoSum1(num, 6);
+        System.out.println(Arrays.toString(ints));
     }
     public static int[] twoSum(int[] nums, int target) {
         int res[] = new int[2];
@@ -25,18 +26,17 @@ public class demo1 {
         return res;
     }
     public static int[] twoSum1(int[] nums, int target){
-        int[]res = new int[2];
+        int arr[] = new int[2];
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            int val = target-nums[i];
-            if(map.containsKey(val)){
-                res[0] = i;
-                res[1] = map.get(val);
-                return res;
-            }else {
-                map.put(nums[i],i);
+            int a  = nums[i];
+            int b  = target-nums[i];
+            if(map.containsKey(a)){
+                arr[0] = i;
+                arr[1] = map.get(target-b);
             }
+            map.put(b,i);
         }
-        return res;
+        return arr;
     }
 }
