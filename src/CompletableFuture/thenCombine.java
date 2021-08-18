@@ -33,6 +33,6 @@ public class thenCombine {
         System.out.println(cf1.join());
     }
     public static void main(String[] args) {
-        thenCombine02();
+//        thenCombine02();
     }
 }

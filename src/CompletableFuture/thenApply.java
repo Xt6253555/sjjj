@@ -1,6 +1,8 @@
 package CompletableFuture;
 
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 //当一个线程依赖另一个线程时，
 // 可以使用 thenApply 方法来把这两个线程串行化。
@@ -29,7 +31,15 @@ public class thenApply {
         });
         System.out.println(accept.join());
     }
+    public static boolean flag(){
+        boolean flag = false;
+        if(flag){
+            return true;
+        }
+        return false;
+    }
     public static void main(String[] args) {
-        thenAccept();
+//        thenApply();
+//        thenAccept();
     }
 }
