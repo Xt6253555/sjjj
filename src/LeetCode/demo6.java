@@ -5,7 +5,7 @@ import java.util.List;
 //Z字形变换
 public class demo6 {
     public static void main(String[] args) {
-        String s = convert("LEETCODEISHIRING", 4);
+        String s = convert("PAYPALI", 3);
         System.out.println(s);
     }
     public static String convert(String s, int numRows) {
@@ -32,6 +32,5 @@ public class demo6 {
             builder.append(stringBuilder);
         }
         return builder.toString();
-
     }
 }

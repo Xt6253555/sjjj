@@ -1,43 +1,19 @@
 package LeetCode;
-import java.util.Arrays;
 import java.util.HashMap;
 public class demo1 {
     public static void main(String[] args) {
-        str("a");
-        str("a","b");
-        str("a","b","c");
+
     }
     public static int[] twoSum(int[] nums, int target) {
-        int res[] = new int[2];
+        int[] arr = new int[2];
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            int num = nums[i];
-            int val = target-num;
-            if(map.containsKey(val)){
-                res[0] = i;
-                res[1] = map.get(val);
-                return res;
-            }else {
-                map.put(num,i);
-            }
-        }
-        return res;
-    }
-    public static int[] twoSum1(int[] nums, int target){
-        int arr[] = new int[2];
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int a  = nums[i];
-            int b  = target-nums[i];
-            if(map.containsKey(a)){
+            if(map.containsKey(target-nums[i])){
                 arr[0] = i;
-                arr[1] = map.get(target-b);
+                arr[1] = map.get(target-nums[i]);
             }
-            map.put(b,i);
+            map.put(nums[i],i);
         }
         return arr;
-    }
-    public static void str(String... a){
-        System.out.println(Arrays.toString(a));
     }
 }
