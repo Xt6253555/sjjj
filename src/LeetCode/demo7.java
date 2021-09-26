@@ -2,7 +2,7 @@ package LeetCode;
 //整数反转
 public class demo7 {
     public static void main(String[] args) {
-        System.out.println(reverse(-123));
+        System.out.println(reverse(1));
     }
     public static int reverse(int x) {
         if(x==0){
@@ -27,5 +27,4 @@ public class demo7 {
             return 0;
         }
     }
-
 }
