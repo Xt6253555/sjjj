@@ -1,7 +1,5 @@
 package LeetCode;
 
-import jdk.nashorn.internal.runtime.linker.NashornBeansLinker;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

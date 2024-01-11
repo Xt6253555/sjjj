@@ -1,6 +1,5 @@
 package LeetCode;
 
-import sun.misc.PostVMInitHook;
 
 //硬币
 public class demo08 {

@@ -1,7 +1,5 @@
 package LeetCode;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.util.Arrays;
 
 //分发糖果

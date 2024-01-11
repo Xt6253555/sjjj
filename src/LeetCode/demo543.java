@@ -1,7 +1,5 @@
 package LeetCode;
 
-import javafx.scene.DepthTest;
-
 //543. 二叉树的直径
 public class demo543 {
     static int ans;

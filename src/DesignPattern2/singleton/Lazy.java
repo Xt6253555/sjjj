@@ -1,8 +1,5 @@
 package DesignPattern2.singleton;
 
-
-import com.sun.imageio.plugins.common.LZWCompressor;
-
 //懒汉式
 public class Lazy {
     private Lazy(){
