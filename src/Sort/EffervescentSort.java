@@ -33,7 +33,7 @@ public class EffervescentSort {
                     arr[j+1]=temp;
                 }
             }
-            if(flag == false){
+            if(!flag){
                 break;
             }else{
                 flag=true;
