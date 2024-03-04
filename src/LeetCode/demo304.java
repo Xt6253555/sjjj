@@ -1,5 +1,6 @@
 package LeetCode;
 
+//二维区域和检索
 public class demo304 {
     private int[][] preMatrix;
     public demo304(int[][] matrix) {
