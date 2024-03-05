@@ -5,7 +5,7 @@ import java.util.*;
 //删除排序数组中的重复项
 public class demo26 {
     public static void main(String[] args) {
-        int arr[] = {-3,-1,0,0,0,3,3};
+        int[] arr = {-3,-1,0,0,0,3,3};
         System.out.println(removeDuplicates(arr));
     }
     public static int removeDuplicates(int[] nums) {
@@ -18,6 +18,16 @@ public class demo26 {
             }
         }
         return i+1;
+    }
+    public static int removeDuplicates2(int[] nums) {
+        int slow =0;
+        for (int fast = 1; fast < nums.length; fast++) {
+            if (nums[slow]!=nums[fast]){
+                slow++;
+                nums[slow] = nums[fast];
+            }
+        }
+        return slow+1;
     }
 
 }

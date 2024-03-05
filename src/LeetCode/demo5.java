@@ -1,7 +1,5 @@
 package LeetCode;
 
-import java.util.Arrays;
-
 //最长回文子串
 public class demo5 {
     public static void main(String[] args) {
@@ -10,26 +8,20 @@ public class demo5 {
     }
     //中心匹配
     public static String longestPalindrome(String s){
-        if(s.length()<2||s==null)return s;
-        int len = 0;
-        int start = 0;
-        int end = 0;
+        String res = "";
         for (int i = 0; i < s.length(); i++) {
-            int l = longest(s, i, i);
-            int r = longest(s, i, i+1);
-            len = Math.max(l,r);
-            if(len>end-start){
-                start = i-(len-1)/2;
-                end = i+len/2;
-            }
+            String s1 = longest(s, i, i);
+            String s2 = longest(s, i, i + 1);
+            res = res.length() > s1.length() ? res : s1;
+            res = res.length() > s2.length() ? res : s2;
         }
-        return s.substring(start,end+1);
+        return res;
     }
-    public static int longest(String s,int l,int r){
-        while (l>=0&&r<s.length()&&s.charAt(l)==s.charAt(r)){
+    public static String longest(String s, int l, int r){
+        while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
             l--;
             r++;
         }
-        return r-l-1;
+        return s.substring(l + 1, r);
     }
 }

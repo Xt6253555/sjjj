@@ -6,15 +6,20 @@ public class demo283 {
         moveZeroes(arr);
     }
     public static void moveZeroes(int[] nums) {
-        int n = nums.length, left = 0, right = 0;
-        while (right < n) {
-            if (nums[right] != 0) {
-                int temp = nums[left];
-                nums[left] = nums[right];
-                nums[right] = temp;
-                left++;
-            }
-            right++;
+        int len = removeElement(nums, 0);
+        for (int i = len; i < nums.length; i++) {
+            nums[i]=0;
         }
+
+    }
+    public static int removeElement(int[] nums, int val) {
+        int slow = 0;
+        for (int fast = 0; fast < nums.length; fast++) {
+            if (nums[fast]!=val){
+                nums[slow] = nums[fast];
+                slow++;
+            }
+        }
+        return slow;
     }
 }

@@ -3,6 +3,7 @@ package LeetCode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 
 //删除排序链表中的重复元素
 public class demo83 {
@@ -23,20 +24,12 @@ public class demo83 {
         if (head == null || head.next == null) {
             return head;
         }
-        HashMap<Integer, Integer> map = new HashMap<>();
-        ArrayList<Integer> list = new ArrayList<>();
+        HashSet<Integer> set = new HashSet<>();
         while (head != null) {
-            int val = head.val;
-            if(map.containsKey(val)){
-                map.put(val,map.get(val)+1);
-            }else {
-                map.put(val,1);
-            }
+            set.add(head.val);
             head = head.next;
         }
-        for (Integer a: map.keySet()) {
-                list.add(a);
-        }
+        ArrayList<Integer> list = new ArrayList<>(set);
         Collections.sort(list);
         ListNode pre = new ListNode(0);
         ListNode cur = pre;
@@ -45,6 +38,22 @@ public class demo83 {
             cur = cur.next;
         }
         return pre.next;
+    }
+    public static ListNode deleteDuplicates2(ListNode head){
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode slow =head;
+        ListNode fast =head;
+        while (fast!=null){
+            if (slow.val!=fast.val){
+                slow.next = fast;
+                slow = slow.next;
+            }
+            fast = fast.next;
+        }
+        slow.next=null;
+        return head;
     }
     public static class ListNode {
         int val;
