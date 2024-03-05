@@ -1,5 +1,5 @@
 package LeetCode;
-//反转一个单链表
+//反转链表
 public class demo206 {
     public static void main(String[] args) {
         ListNode a = new ListNode(1);

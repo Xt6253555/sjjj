@@ -8,7 +8,7 @@ import java.util.List;
 
 public class demo15 {
     public static void main(String[] args) {
-        int arr[] = {-1, 0, 1, 2, -1, -4};
+        int[] arr = {-1, 0, 1, 2, -1, -4};
         List<List<Integer>> lists = threeSum(arr);
         for (List<Integer> a:lists) {
             System.out.println(a);

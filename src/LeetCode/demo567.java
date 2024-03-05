@@ -2,7 +2,7 @@ package LeetCode;
 
 import java.util.HashMap;
 
-//
+//字符串的排列
 public class demo567 {
     public boolean checkInclusion(String s1, String s2) {
         HashMap<Character, Integer> need = new HashMap<>();
