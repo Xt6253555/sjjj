@@ -8,35 +8,24 @@ public class demo100 {
         TreeNode l2 = new TreeNode(1);
         l2.left = new TreeNode(2);
         l2.right = new TreeNode(3);
-        System.out.println(ptree(l1));
-        System.out.println(qtree(l2));
-        System.out.println(isSameTree(l1,l2));
 
     }
-    static StringBuilder p = new StringBuilder();
-    static StringBuilder q = new StringBuilder();
-    public static boolean isSameTree(TreeNode p, TreeNode q) {
-        return ptree(p).equals(qtree(q));
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p==null&&q==null)return true;
+        StringBuilder s1 = new StringBuilder();
+        StringBuilder s2 = new StringBuilder();
+        isString(p, s1);
+        isString(q, s2);
+        return s1.toString().equals(s2.toString());
     }
-    public static String ptree(TreeNode root){
+    public void isString(TreeNode root,StringBuilder sb){
         if(root==null){
-            p.append("null");
-        }else{
-            p.append(root.val);
-            ptree(root.left);
-            ptree(root.right);
+            sb.append(0);
+            return;
         }
-        return p.toString();
-    }
-    public static String qtree(TreeNode root){
-        if(root==null){
-            q.append("null");
-        }else{
-            q.append(root.val);
-            qtree(root.left);
-            qtree(root.right);
-        }
-        return q.toString();
+        sb.append(root.val);
+        isString(root.left,sb);
+        isString(root.right,sb);
     }
     public static class TreeNode{
         int val;
