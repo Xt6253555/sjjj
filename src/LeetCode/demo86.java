@@ -13,13 +13,10 @@ public class demo86 {
         list3.next=list4;
         list4.next=list5;
         list5.next=list6;
-        ListNode listNode = partition1(list1,3);
+        ListNode listNode = partition(list1,3);
         list(listNode);
     }
     public static ListNode partition(ListNode head, int x) {
-        if (head == null || head.next == null) {
-            return head;
-        }
         ListNode pre = new ListNode(0);
         ListNode listNode = pre;
         ListNode cur = head;
@@ -40,28 +37,6 @@ public class demo86 {
             }else {
                 cur = cur.next;
             }
-        }
-        return pre.next;
-    }
-    public static ListNode partition1(ListNode head, int x){
-        if(head==null || head.next == null)return head;
-        ListNode pre = new ListNode(0);
-        ListNode cur = pre;
-        ListNode min = head;
-        ListNode max = head;
-        while (min != null){
-            if(min.val<x){
-                cur.next = new ListNode(min.val);
-                cur = cur.next;
-            }
-            min = min.next;
-        }
-        while (max != null){
-            if(max.val>=x){
-                cur.next = new ListNode(max.val);
-                cur = cur.next;
-            }
-            max = max.next;
         }
         return pre.next;
     }

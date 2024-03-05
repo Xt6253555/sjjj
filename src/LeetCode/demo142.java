@@ -32,16 +32,20 @@ public class demo142 {
         return null;
     }
     public static ListNode detectCycle1(ListNode head){
-        if(head == null||head.next == null)return null;
-        HashSet<ListNode> set = new HashSet<>();
-        while (head != null){
-            set.add(head);
-            if(set.contains(head.next)){
-                return head.next;
-            }
-            head = head.next;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow) break;
         }
-        return null;
+        if (fast == null || fast.next == null) return null;
+        slow = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
     }
     public static class ListNode {
         int val;

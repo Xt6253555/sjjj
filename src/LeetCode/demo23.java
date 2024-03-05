@@ -32,33 +32,22 @@ public class demo23 {
         }
         return lists[0];
     }
-    public static ListNode mergeKLists1(ListNode[] lists){
-        int len = lists.length;
-        if (len==0)return null;
-        while (len>1){
-            for (int i = 0; i < len / 2; i++) {
-                lists[i] = mergeTwoLists(lists[i], lists[len - 1 - i]);
-            }
-            len = (len+1)/2;
-        }
-        return lists[0];
-    }
+
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode pre = new ListNode(0);
-        ListNode cur = pre;
-        while (l1!=null||l2!=null){
-            int x = (l1 == null) ? Integer.MAX_VALUE : l1.val;
-            int y = (l2 == null) ? Integer.MAX_VALUE : l2.val;
-            if(x>y){
-                cur.next = new ListNode(y);
-                l2= l2.next;
-            }else {
-                cur.next = new ListNode(x);
-                l1= l1.next;
+        ListNode cur = new ListNode(0);
+        ListNode pre = cur;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                pre.next = l1;
+                l1 = l1.next;
+            } else {
+                pre.next = l2;
+                l2 = l2.next;
             }
-            cur = cur.next;
+            pre = pre.next;
         }
-        return pre.next;
+        pre.next = l1 == null ? l2 : l1;
+        return cur.next;
     }
     public static class ListNode {
       int val;

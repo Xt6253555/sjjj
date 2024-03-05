@@ -12,21 +12,20 @@ public class demo21 {
         ListNode listNode = mergeTwoLists(list0, list2);
         node.list(listNode);
     }
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2){
         ListNode pre = new ListNode(0);
         ListNode cur = pre;
-        while (l1!=null||l2!=null){
-            int x = (l1 == null) ? Integer.MAX_VALUE : l1.val;
-            int y = (l2 == null) ? Integer.MAX_VALUE : l2.val;
-            if(x>y){
-                cur.next = new ListNode(y);
-                l2= l2.next;
-            }else {
-                cur.next = new ListNode(x);
-                l1= l1.next;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                cur.next = new ListNode(l1.val);
+                l1 = l1.next;
+            } else {
+                cur.next = new ListNode(l2.val);
+                l2 = l2.next;
             }
             cur = cur.next;
         }
+        cur.next = l1==null?l2:l1;
         return pre.next;
     }
     public static class ListNode {

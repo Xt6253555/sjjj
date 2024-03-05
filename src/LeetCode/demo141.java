@@ -33,13 +33,12 @@ public class demo141 {
         return false;
     }
     public static boolean hasCycle1(ListNode head){
-        if(head == null || head.next==null)return false;
-        HashSet<ListNode> set = new HashSet<>();
-        while (head!=null){
-            if(set.contains(head.next)){
-                return true;
-            }
-            set.add(head);
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast!=null&&fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow==fast)return true;
         }
         return false;
     }

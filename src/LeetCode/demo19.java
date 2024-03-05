@@ -17,9 +17,9 @@ public class demo19 {
         removeNthFromEnd(list1, 2);
     }
     public static ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head == null)return head;
+        if (head==null)return head;
         ListNode pre = new ListNode(0);
-        pre.next = head;
+        pre.next =head;
         ListNode slow = pre;
         ListNode fast = head;
         for (int i = 0; i < n; i++) {
