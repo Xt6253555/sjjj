@@ -6,21 +6,6 @@ import java.util.List;
 
 //寻找重复子树
 public class demo652 {
-    public static void main(String[] args) {
-
-    }
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-           this.val = val;
-           this.left = left;
-           this.right = right;
-      }
-    }
     // 记录所有子树以及出现的次数
     HashMap<String, Integer> memo = new HashMap<>();
     // 记录重复的子树根节点
@@ -47,5 +32,18 @@ public class demo652 {
             memo.put(sub, a + 1);
         }
         return  sub;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }
