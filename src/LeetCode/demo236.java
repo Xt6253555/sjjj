@@ -1,5 +1,5 @@
 package LeetCode;
-//236.二叉搜索树的最近公共祖先
+//236.二叉树的最近公共祖先
 public class demo236 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root==null||p==root||q==root)return root;
